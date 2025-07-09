@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation, Outlet } from 'react-router-dom';
-import { BarChart3, Hotel, Calendar, Bed } from 'lucide-react';
+import { BarChart3, Hotel, Calendar, Bed, Users } from 'lucide-react';
 
 export function AdminLayout() {
   const location = useLocation();
@@ -10,6 +10,7 @@ export function AdminLayout() {
     { path: '/admin/hotels', label: 'Hotels', icon: Hotel },
     { path: '/admin/rooms', label: 'Rooms', icon: Bed },
     { path: '/admin/bookings', label: 'Bookings', icon: Calendar },
+    { path: '/admin/users', label: 'Users', icon: Users },
   ];
 
   return (

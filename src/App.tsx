@@ -15,6 +15,7 @@ import { AdminDashboard } from './pages/admin/AdminDashboard';
 import { AdminHotels } from './pages/admin/AdminHotels';
 import { AdminRooms } from './pages/admin/AdminRooms';
 import { AdminBookings } from './pages/admin/AdminBookings';
+import { AdminUsers } from './pages/admin/AdminUsers';
 
 function App() {
   const { loading } = useAuth();
@@ -77,6 +78,7 @@ function App() {
             <Route path="hotels" element={<AdminHotels />} />
             <Route path="rooms" element={<AdminRooms />} />
             <Route path="bookings" element={<AdminBookings />} />
+            <Route path="users" element={<AdminUsers />} />
           </Route>
           
           {/* Fallback */}
