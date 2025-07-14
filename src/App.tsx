@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
+import { ThemeProvider } from './contexts/ThemeContext';
 import { useAuth } from './hooks/useAuth';
 import { Layout } from './components/Layout';
 import { LoadingSpinner } from './components/LoadingSpinner';
@@ -25,67 +26,74 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Toaster position="top-right" />
-        <Routes>
-          {/* Public Routes */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          
-          {/* Protected Routes */}
-          <Route
-            path="/"
-            element={
-              <ProtectedRoute>
-                <Layout>
-                  <Home />
-                </Layout>
-              </ProtectedRoute>
-            }
+    <ThemeProvider>
+      <BrowserRouter>
+        <div className="App">
+          <Toaster 
+            position="top-right"
+            toastOptions={{
+              className: 'dark:bg-gray-800 dark:text-white',
+            }}
           />
-          <Route
-            path="/hotels/:id"
-            element={
-              <ProtectedRoute>
-                <Layout>
-                  <HotelDetails />
-                </Layout>
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/bookings"
-            element={
-              <ProtectedRoute>
-                <Layout>
-                  <Bookings />
-                </Layout>
-              </ProtectedRoute>
-            }
-          />
-          
-          {/* Admin Routes */}
-          <Route
-            path="/admin"
-            element={
-              <ProtectedRoute requireAdmin>
-                <AdminLayout />
-              </ProtectedRoute>
-            }
-          >
-            <Route index element={<AdminDashboard />} />
-            <Route path="hotels" element={<AdminHotels />} />
-            <Route path="rooms" element={<AdminRooms />} />
-            <Route path="bookings" element={<AdminBookings />} />
-            <Route path="users" element={<AdminUsers />} />
-          </Route>
-          
-          {/* Fallback */}
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+          <Routes>
+            {/* Public Routes */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            
+            {/* Protected Routes */}
+            <Route
+              path="/"
+              element={
+                <ProtectedRoute>
+                  <Layout>
+                    <Home />
+                  </Layout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/hotels/:id"
+              element={
+                <ProtectedRoute>
+                  <Layout>
+                    <HotelDetails />
+                  </Layout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/bookings"
+              element={
+                <ProtectedRoute>
+                  <Layout>
+                    <Bookings />
+                  </Layout>
+                </ProtectedRoute>
+              }
+            />
+            
+            {/* Admin Routes */}
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute requireAdmin>
+                  <AdminLayout />
+                </ProtectedRoute>
+              }
+            >
+              <Route index element={<AdminDashboard />} />
+              <Route path="hotels" element={<AdminHotels />} />
+              <Route path="rooms" element={<AdminRooms />} />
+              <Route path="bookings" element={<AdminBookings />} />
+              <Route path="users" element={<AdminUsers />} />
+            </Route>
+            
+            {/* Fallback */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

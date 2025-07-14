@@ -36,6 +36,7 @@ export function AdminUsers() {
   const updateUserRole = async (userId: string, newRole: 'user' | 'admin') => {
     setUpdatingUserId(userId);
     try {
+      // Use service role or admin privileges to update user role
       const { error } = await supabase
         .from('profiles')
         .update({ role: newRole })
@@ -65,6 +66,10 @@ export function AdminUsers() {
     
     return matchesRole && matchesSearch;
   });
+
+  // Debug: Log users to console to check data
+  console.log('All users:', users);
+  console.log('Filtered users:', filteredUsers);
 
   if (loading) {
     return <LoadingSpinner />;
