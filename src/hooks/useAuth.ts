@@ -69,20 +69,6 @@ export function useAuth() {
       }
     }
 
-    if (data.user) {
-      // Create profile
-      const { error: profileError } = await supabase
-        .from('profiles')
-        .insert([
-          {
-            id: data.user.id,
-            full_name: fullName,
-            role: 'user',
-          },
-        ]);
-
-      if (profileError) throw profileError;
-    }
 
     return data;
   };
