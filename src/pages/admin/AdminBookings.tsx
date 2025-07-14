@@ -189,7 +189,7 @@ export function AdminBookings() {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center text-sm font-medium text-gray-900">
-                      <DollarSign className="h-4 w-4 mr-1" />
+                      <span className="mr-1">₹</span>
                       {booking.total_price}
                     </div>
                   </td>

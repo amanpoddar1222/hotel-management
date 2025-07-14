@@ -114,9 +114,9 @@ export function Login() {
           <div className="mt-2 text-center text-sm text-gray-600">
             <p><strong>Admin:</strong> admin@example.com / password123</p>
             <p><strong>User:</strong> user@example.com / password123</p>
-            <div className="mt-3 p-3 bg-amber-50 rounded-lg border border-amber-200">
+            <div className="mt-3 p-3 bg-blue-50 rounded-lg border border-blue-200">
               <p className="text-xs text-blue-700">
-                <strong>Email Confirmation Required:</strong> After registering a new account, you must check your email (including spam folder) and click the confirmation link before you can sign in. Use the demo credentials above for immediate access.
+                <strong>Email Verification Required:</strong> New accounts must verify their email address before signing in. Check your email for the verification link after registration. Use the demo credentials above for immediate access.
               </p>
             </div>
           </div>

@@ -199,7 +199,7 @@ export function HotelDetails() {
                     </div>
                     <div className="text-right">
                       <div className="flex items-center text-2xl font-bold text-gray-900">
-                        <DollarSign className="h-6 w-6" />
+                        <span className="text-2xl mr-1">₹</span>
                         <span>{room.price}</span>
                       </div>
                       <span className="text-sm text-gray-500">per night</span>
@@ -269,14 +269,14 @@ export function HotelDetails() {
                   </div>
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-sm text-gray-600">Price per night:</span>
-                    <span className="font-medium">${selectedRoom.price}</span>
+                    <span className="font-medium">₹{selectedRoom.price}</span>
                   </div>
                   <div className="flex justify-between items-center mb-4">
                     <span className="text-sm text-gray-600">
                       Total ({Math.ceil((new Date(checkOut).getTime() - new Date(checkIn).getTime()) / (1000 * 60 * 60 * 24))} nights):
                     </span>
                     <span className="font-bold text-lg">
-                      ${selectedRoom.price * Math.ceil((new Date(checkOut).getTime() - new Date(checkIn).getTime()) / (1000 * 60 * 60 * 24))}
+                      ₹{selectedRoom.price * Math.ceil((new Date(checkOut).getTime() - new Date(checkIn).getTime()) / (1000 * 60 * 60 * 24))}
                     </span>
                   </div>
                 </div>

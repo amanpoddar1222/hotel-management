@@ -214,10 +214,10 @@ function BookingCard({ booking, onCancel, cancelling, showCancelButton }: Bookin
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-gray-500">Total Price</p>
-              <p className="text-xl font-bold text-gray-900">${booking.total_price}</p>
+              <p className="text-xl font-bold text-gray-900">₹{booking.total_price}</p>
             </div>
             
-            {showCancelButton && (
+            {showCancelButton && booking.status === 'confirmed' && (
               <button
                 onClick={() => onCancel(booking.id)}
                 disabled={cancelling}

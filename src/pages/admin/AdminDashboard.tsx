@@ -110,7 +110,7 @@ export function AdminDashboard() {
         />
         <StatsCard
           title="Total Revenue"
-          value={`$${stats.totalRevenue.toLocaleString()}`}
+          value={`₹${stats.totalRevenue.toLocaleString()}`}
           icon={DollarSign}
           color="bg-purple-500"
         />
@@ -141,7 +141,7 @@ export function AdminDashboard() {
                   <p className="text-sm text-gray-600">{booking.room?.type}</p>
                 </div>
                 <div className="text-right">
-                  <p className="font-semibold">${booking.total_price}</p>
+                  <p className="font-semibold">₹{booking.total_price}</p>
                   <p className="text-sm text-gray-600">
                     {new Date(booking.created_at).toLocaleDateString()}
                   </p>

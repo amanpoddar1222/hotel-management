@@ -123,9 +123,9 @@ export function Register() {
         </form>
         
         <div className="mt-6">
-          <div className="p-4 bg-yellow-50 rounded-lg">
-            <p className="text-sm text-yellow-800">
-              <strong>Important:</strong> After creating your account, please check your email (including spam folder) for a confirmation link. You'll need to click this link before you can sign in.
+          <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+            <p className="text-sm text-blue-800">
+              <strong>Email Verification Required:</strong> After creating your account, we'll send you a verification email. Please check your inbox (and spam folder) and click the verification link to activate your account before signing in.
             </p>
           </div>
         </div>
