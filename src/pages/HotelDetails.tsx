@@ -273,10 +273,10 @@ export function HotelDetails() {
                   </div>
                   <div className="flex justify-between items-center mb-4">
                     <span className="text-sm text-gray-600">
-                      Total ({Math.ceil((new Date(checkOut).getTime() - new Date(checkIn).getTime()) / (1000 * 60 * 60 * 24))} nights):
+                      Total ({Math.max(1, Math.ceil((new Date(checkOut).getTime() - new Date(checkIn).getTime()) / (1000 * 60 * 60 * 24)))} nights):
                     </span>
                     <span className="font-bold text-lg">
-                      ₹{selectedRoom.price * Math.ceil((new Date(checkOut).getTime() - new Date(checkIn).getTime()) / (1000 * 60 * 60 * 24))}
+                      ₹{(selectedRoom.price * Math.max(1, Math.ceil((new Date(checkOut).getTime() - new Date(checkIn).getTime()) / (1000 * 60 * 60 * 24)))).toLocaleString()}
                     </span>
                   </div>
                 </div>
