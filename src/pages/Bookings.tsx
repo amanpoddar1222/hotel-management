@@ -237,7 +237,7 @@ function BookingCard({ booking, onCancel, cancelling, showCancelButton }: Bookin
   };
 
   const StatusIcon = statusIcons[booking.status];
-
+  const [cancelbtn, setCancelBtn] = useState(true);
   return (
     <div className="bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-lg p-6 hover:shadow-md dark:hover:shadow-lg transition-shadow">
       <div className="flex items-start justify-between">
@@ -287,9 +287,13 @@ function BookingCard({ booking, onCancel, cancelling, showCancelButton }: Bookin
               <p className="text-xl font-bold text-gray-900 dark:text-white">₹{booking.total_price}</p>
             </div>
             
-            {showCancelButton && booking.status === 'confirmed' && (
+            {cancelbtn&&booking.status === 'confirmed' && (
               <button
-                onClick={() => onCancel(booking.id)}
+                onClick={() => {
+                  
+                  setCancelBtn(false)
+                  onCancel(booking.id)
+                }}
                 disabled={cancelling}
                 className="px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center space-x-2"
               >
