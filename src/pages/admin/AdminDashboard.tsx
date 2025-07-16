@@ -38,18 +38,21 @@ export function AdminDashboard() {
           profile:profiles(full_name)
         `).order('created_at', { ascending: false })
       ]);
-
+       console.log(bookingsRes)
       const totalHotels = hotelsRes.count || 0;
       const totalUsers = usersRes.count || 0;
       const totalBookings = bookingsRes.count || 0;
       
       const bookings = bookingsRes.data || [];
+      console.log(bookings)
       const confirmedBookings = bookings.filter(b => b.status === 'confirmed').length;
       const cancelledBookings = bookings.filter(b => b.status === 'cancelled').length;
+      console.log(confirmedBookings)
+      console.log(cancelledBookings)
       const totalRevenue = bookings
         .filter(b => b.status === 'confirmed')
         .reduce((sum, booking) => sum + booking.total_price, 0);
-
+      
       // Get monthly data
       const monthlyBookings = getMonthlyBookings(bookings);
       const monthlyRevenue = getMonthlyRevenue(bookings);
@@ -98,7 +101,7 @@ export function AdminDashboard() {
       acc[month] = (acc[month] || 0) + 1;
       return acc;
     }, {} as Record<string, number>);
-
+     console.log(monthlyData)
     return Object.entries(monthlyData).map(([month, count]) => ({
       month,
       bookings: count
@@ -222,7 +225,7 @@ export function AdminDashboard() {
       </div>
 
       {/* Charts */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-white dark:bg-gray-800 rounded-lg border dark:border-gray-700 p-6">
           <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">Monthly Bookings</h3>
           <ResponsiveContainer width="100%" height={300}>
@@ -269,11 +272,11 @@ export function AdminDashboard() {
             </LineChart>
           </ResponsiveContainer>
         </div>
-      </div>
+      </div> */}
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Booking Status Pie Chart */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg border dark:border-gray-700 p-6">
+        {/* <div className="bg-white dark:bg-gray-800 rounded-lg border dark:border-gray-700 p-6">
           <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">Booking Status</h3>
           <ResponsiveContainer width="100%" height={250}>
             <PieChart>
@@ -311,10 +314,10 @@ export function AdminDashboard() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Top Hotels */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg border dark:border-gray-700 p-6">
+        {/* <div className="bg-white dark:bg-gray-800 rounded-lg border dark:border-gray-700 p-6">
           <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">Top Hotels</h3>
           <div className="space-y-3">
             {stats.topHotels.map((hotel, index) => (
@@ -333,10 +336,10 @@ export function AdminDashboard() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Recent Bookings */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg border dark:border-gray-700 p-6">
+        {/* <div className="bg-white dark:bg-gray-800 rounded-lg border dark:border-gray-700 p-6">
           <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">Recent Bookings</h3>
           <div className="space-y-3">
             {stats.recentBookings.map((booking) => (
@@ -358,7 +361,7 @@ export function AdminDashboard() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
